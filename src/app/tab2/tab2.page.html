@@ -1,0 +1,32 @@
+<header style="text-align: center">
+  <div class="">
+    <span style="color: #fff">商品分类</span>
+  </div>
+</header>
+
+<ion-content>
+  <div class="cat-product">
+
+    <div class="cate-left">
+      <ion-list lines="full">
+        <ion-item *ngFor="let item of cateLists" (tap)="getRightData(item._id,item.title)">
+          <ion-label>{{item.title}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="cate-right">
+      <ion-grid fixed class="like-product">
+        <ion-row>
+          
+          <ion-col size="4" *ngFor="let item of cateListsContent" [routerLink]="['/search-page']" [queryParams]="{'id':item._id}">
+            <img [src]="domain+item.pic" alt="">
+            <p>{{item.title}}</p>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </div>
+</ion-content>

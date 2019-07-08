@@ -1,0 +1,74 @@
+
+.my-slide ion-img {
+  max-height: 10rem;
+  overflow: hidden;
+}
+.slide-product{
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.9rem;
+  ul{
+    width: 2000px;
+    margin: 0;
+    padding: 0;
+    li{
+      margin: 0;
+      padding: 0;
+      float: left;
+      // height: 23vh;
+      margin-right: 10px;
+      img{
+        max-height: 13rem;
+        width: 100%;
+        border: 0;
+      }
+      p{    
+        margin: 0;
+        font-size: 1rem;
+        width: 100%;
+        position: relative;
+        line-height: 1rem;
+        max-height: 4.1rem;
+        overflow: hidden;
+        font-family: -webkit-pictograph;
+      }
+      p::after{
+        content: "....";
+        position: absolute;
+        bottom: 0;
+        background: -webkit-linear-gradient(left, transparent, #fff 62%);
+        background: -o-linear-gradient(right, transparent, #fff 62%);
+        background: -moz-linear-gradient(right, transparent, #fff 62%);
+        background: linear-gradient(to right, transparent, #fff 62%);
+        }
+    }
+  }
+  
+}
+
+.like-product{
+  p{
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  .price{
+    text-align: center;
+    span + span{
+      margin-left: 1rem
+    }
+    span:first-child{
+      font-size: 1.2rem;
+      color: #ec0a0a;
+    }
+    span:last-child{
+      color: rgb(131, 131, 131);
+      font-size: .9rem;
+    }
+  }
+  ion-col{
+    border: 1px solid #efefef;
+  }
+}

@@ -1,0 +1,45 @@
+ion-list{
+    padding: 0;
+    margin: 0;
+    ion-item{
+        display: flex;
+        button[slot='start']{
+            width: 1.9rem;
+            background: transparent;
+            height: 1.9rem;
+            font-size: 1.4rem;
+            color: #f50218f0;
+        }
+        button[slot='end']{
+            width: 1.9rem;
+            background: transparent;
+            height: 1.9rem;
+            font-size: 1.3rem;
+            color: #f50218f0;
+        }
+        .address-detail{
+            flex: 1;
+            h2{
+                padding: 0;
+                margin: 0.5rem 0;
+                color: #6a6a6a;
+                font-size: 1.3rem;
+            }
+            p{
+                color: #9e9e9e;
+            }
+        }
+    }
+}
+
+ion-footer{
+    button{
+        width: 95%;
+        margin: 0.6rem auto;
+        display: block;
+        height: 2.6rem;
+        font-size: 1.1rem;
+        color: #fff;
+        background: linear-gradient(to right, #ec3e3d, #ee4d43, #f25a4c, #fa6a52, #fb6e53);
+    }
+}

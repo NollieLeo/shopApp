@@ -1,0 +1,87 @@
+<header style="text-align: center">
+  <div class="">
+    <span>购物车</span>
+  </div>
+  <div class="edit" #myEdit (tap)='changeEdit()' *ngIf="hasData">编辑</div>
+</header>
+
+
+<ion-content>
+  <div class="" *ngIf="cartLists.length==0 && hasData" style="text-align:center">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+  <p style="text-align:center;padding-top:80px" *ngIf="!hasData">购物车空空哒！</p>
+  <ion-list lines='full'>
+    <ion-item-sliding *ngFor="let item of cartLists; let key = index" #mySlidingOtp>
+      <ion-item style="margin:0 !important">
+        <dl class="cart-list">
+          <dt>
+            <ion-checkbox color="danger" mode='ios' [(ngModel)]="item.checked" (ionChange)='changeChecked()'>
+            </ion-checkbox>
+            <img [src]="domain + item.p_pic" alt="">
+          </dt>
+
+          <dd>
+            <h2>{{item.title}}</h2>
+            <div class="cart-attr"><span>{{item.p_attr}}</span></div>
+            <div class="cart-info">
+
+              <div class="cart-price">￥{{item.p_price}}</div>
+
+              <div class="cart-num">
+                <div class="input-left" (tap)="deleteNum(item)">-</div>
+                <div class="input-center">
+                  <input type="text" readonly [(ngModel)]="item.p_count" id="pNum">
+                </div>
+                <div class="input-right" (tap)="addNum(item)">+</div>
+              </div>
+
+            </div>
+          </dd>
+        </dl>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteItem(item)">删除</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+
+<ion-footer mode='ios' *ngIf="hasData">
+  <ion-toolbar *ngIf="!isEdit">
+
+    <div class="cart-all-price" (tap)="checkAllProduct()">
+      <ion-checkbox color="danger" disabled='true' mode='ios' [(ngModel)]="isAllChecked"></ion-checkbox>
+      <div class="price-content">
+        <span>全选</span>
+        &nbsp;&nbsp;
+        <span class="total-price"><strong>合计:</strong><span>￥{{totalPrice}}</span></span>
+      </div>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button (tap)='calculateSum()'>
+        结算
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="isEdit">
+
+    <div class="cart-all-price" (tap)="checkAllProduct()">
+      <ion-checkbox color="danger" disabled='true' mode='ios' [(ngModel)]="isAllChecked"></ion-checkbox>
+      <div class="price-content">
+        <span>全选</span>
+      </div>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button (tap)='deleteProduct()'>
+        删除
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>

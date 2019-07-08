@@ -1,0 +1,32 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" mode="ios" color="primary">
+        返回
+        <ion-icon slot="start" name="arrow-back" mode="ios" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title mode="ios">输入密码</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>密码:</ion-label>
+      <ion-input type="password" placeholder="请输入密码" [(ngModel)]="myPassword"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>确认密码:</ion-label>
+      <ion-input type="password" placeholder="请输入密码" [(ngModel)]='cMyPassword'></ion-input>
+    </ion-item>
+    <ion-item lines='none'>
+      <span>密码由6-20个字母、数字、特殊符号组成，注意大小写</span>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand='block' (click)="sendPassword()">
+    确认
+  </ion-button>
+</ion-content>

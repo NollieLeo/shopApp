@@ -1,0 +1,22 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start" mode="ios">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="start" name="arrow-back" mode='ios'></ion-icon>
+        返回
+      </ion-button>
+    </ion-buttons>
+    <ion-title mode="ios">手机快速注册</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="register-input">
+    <input type="text" placeholder="请输入手机号" [(ngModel)]="telNum">
+  </div>
+  <ion-button class="reg-btn" expand='block' color="primary" (click)="goToCheck()">
+    下一步
+  </ion-button>
+
+  
+</ion-content>

@@ -1,0 +1,99 @@
+<ion-header mode='ios'>
+    <ion-toolbar mode='ios'>
+        <ion-title mode='ios'>我的订单</ion-title>
+        <ion-buttons slot="start" mode='ios'>
+            <ion-button (click)="goBack()" mode='ios'>
+                <ion-icon slot="icon-only" name="arrow-back" mode='ios'></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+    <div class="order">
+
+        <div class="address_list">
+            <!-- 用户已登陆但没有收获地址 -->
+            <ion-list *ngIf="userInfo && !defaultAddress" lines='none'>
+                <ion-item [routerLink]="['/my-address']">
+                    <ion-icon name="home" mode='ios' style="color: #919191;"></ion-icon>
+
+                    请添加您的收货地址
+
+                </ion-item>
+            </ion-list>
+            <!-- 已登陆有收获地址 -->
+            <ion-list *ngIf="userInfo && defaultAddress" lines='none' class="has-address">
+                <ion-item [routerLink]="['/my-address']">
+                    <ion-icon name="home" mode='ios' style="color: #919191;"></ion-icon>
+                    <div class="my-default-address">
+                        <h2>{{defaultAddress.name}} <span>{{defaultAddress.phone}}</span></h2>
+                        <p>{{defaultAddress.address}}</p>
+                    </div>
+                </ion-item>
+            </ion-list>
+            <!-- 未登陆 -->
+            <ion-list *ngIf="!userInfo" lines='none'>
+                <ion-item class="nologin">
+                    <p>您还没有登录，登录后同步您的订单信息...</p>
+                    <button [routerLink]="['/login']" [queryParams]="{histroy:'order'}">登录</button>
+                </ion-item>
+            </ion-list>
+
+        </div>
+
+        <div class="height shadow">
+        </div>
+
+        <div class="product_list">
+
+            <ion-list class="p_main_lists" lines='none'>
+                <ion-item *ngFor="let item of buy_lists">
+
+                    <div class="p_pic">
+                        <img [src]="domain + item.p_pic" />
+                    </div>
+
+                    <div class="p_detail">
+
+                        <div class="p_detail_left">
+                            <h2>{{item.title}}</h2>
+                            <p>属性：{{item.p_attr}}</p>
+                        </div>
+
+                        <div class="p_detail_right">
+                            <p><span class="price">¥{{item.p_price}}</span> </p>
+                            <span class="count">x{{item.p_count}}</span>
+                        </div>
+
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <div class="height shadow"></div>
+
+            <ion-list inset class="submit_info">
+                <ion-textarea placeholder="选填:给商家留言45字以内" type="text"></ion-textarea>
+            </ion-list>
+        </div>
+    </div>
+
+</ion-content>
+
+
+
+<ion-footer>
+    <ion-toolbar>
+        <div class="order-footer">
+
+            <p>实付款: <span>￥{{sumPrice}}</span></p>
+
+            <button class="buy-order" (tap)="goPay()">
+                立即下单
+            </button>
+        </div>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,102 @@
+ion-header[mode='ios']{
+    border-bottom: 1px solid #ccc;
+}
+.search1{
+    .search-hot{
+        width: 100%;
+        padding: .5rem;
+        .search-hot-lists{
+            h4{
+                font-size: 1rem;
+                margin: 0.8rem 0;
+                font-weight: 600;
+            }
+            ul{
+                padding: 0;
+                margin: 0;
+                li{
+                    display: inline-block;
+                    font-size: 0.9rem;
+                    margin: 0.2rem 0.7rem;
+                    padding: 6px;
+                    border-radius: 6px;
+                    background: #e5e5e5;
+                }
+            }
+        }
+    }
+    .search-his{
+        padding: .5rem;
+        h4{
+            font-size: 1rem;
+            margin: 0.8rem 0;
+            font-weight: 600;
+        }
+        ion-list{
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.search2{
+    // position: relative;
+    .sort-bar{
+        height: 2.5rem;
+        line-height: 2.5rem;
+        position: fixed;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #e8e8e8;
+        z-index: 9;
+        ul{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+           li{
+                flex: 1;
+                text-align: center;
+           }
+        }
+    }
+    
+}
+.p_style{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    padding: 14px;
+    span{
+        display: block;
+    }
+    span:first-of-type{
+        font-size: 1.1rem;
+    }
+    span:last-of-type{
+        strong{
+            color: red !important;
+        }
+    }
+    span:last-of-type{
+        color: #676767;
+        font-size: 0.9rem;
+    }
+}
+
+ion-content{
+    h2{
+        text-align: center;
+        font-size: 1rem;
+        padding: 0;
+        margin: 14px;
+    }
+}
+.no-data{
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    color: #5d5d5d;
+    border-bottom: 1px solid #ccc;
+}

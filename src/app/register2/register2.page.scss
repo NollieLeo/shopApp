@@ -1,0 +1,32 @@
+.reg2{
+    margin-top: 1rem;
+    display: flex;
+    padding: .5rem;
+    // width: 92%;
+    input{
+        border: 1px solid #eee;
+        // margin: 1.2rem auto;
+        height: 2.7rem;
+        text-indent: .5rem;
+        flex: 1;
+    }
+    .reg2-timer{
+        line-height: 2.7rem;
+        width: 6rem;
+        height: 2.7rem;
+        /* font-size: 0.8rem; */
+        padding: 0;
+        margin: 0rem .5rem;
+        border-radius: 6px;
+    }
+    .reg2-timer2{
+        line-height: 2.7rem;
+        width: 6rem;
+        height: 2.7rem;
+        padding: 0;
+        margin: 0rem .5rem;
+        border-radius: 6px;
+        background: #3880ff;
+        color: #fff;
+    }
+}

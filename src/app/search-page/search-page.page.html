@@ -1,0 +1,45 @@
+<ion-header mode='ios'>
+  <ion-buttons slot="start">
+    <ion-button (click)="goBack()" mode='ios'>
+      <ion-icon slot="icon-only" name="arrow-back" mode='ios'></ion-icon>
+    </ion-button>
+    <ion-searchbar placeholder="搜索商品" animated mode='ios'></ion-searchbar>
+    <ion-button mode='ios'>
+      搜索
+    </ion-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <div class="search2">
+
+    <div class="sort-bar">
+      <ul>
+        <li>综合</li>
+        <li>销量</li>
+        <li>价格</li>
+      </ul>
+    </div>
+
+    <ion-list lines='full' style="padding: 2.5rem 0 0 0!important">
+      <ion-item *ngFor="let item of lists" [routerLink]="['/product-detail']" [queryParams]="{'id':item._id}">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="domain+item.s_pic"></ion-img>
+        </ion-thumbnail>
+        <p class="p_style">
+          <span>{{item.title}}</span>
+          <span>价格：￥<strong>{{item.price}}</strong></span>
+        </p>
+      </ion-item>
+    </ion-list>
+
+    <!-- <div class="no-data" *ngIf="!hasData">没有数据。。。。</div> -->
+  </div>
+  <div class="no-data" *ngIf="hasData">没有更多数据</div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="getPLists($event)" #myInfiniteScroll>
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多商品...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <h2 *ngIf="!more">老子他妈是有底线的....</h2>
+
+</ion-content>

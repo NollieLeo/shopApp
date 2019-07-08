@@ -1,0 +1,102 @@
+<ion-header mode='ios'>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start" mode='md'>
+      <ion-button (click)="goBack()" mode='md'>
+        <ion-icon slot="start" name="arrow-back" mode='ios'></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-segment [(ngModel)]="tabs" color="primary" mode='ios'>
+
+      <ion-segment-button value='tab1' mode='ios'>
+        <ion-label>商品</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value='tab2' mode='ios'>
+        <ion-label>详情</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="p-content">
+
+    <div class="info" [ngSwitch]='tabs'>
+
+      <div class="con-1" *ngSwitchCase="'tab1'">
+        <div class="p-img"><img [src]="domain+pDetail.pic" alt=""></div>
+        <div class="p-info mb10">
+
+          <div class="p-title">
+            <h2>{{pDetail.title}}</h2>
+            <p>{{pDetail.sub_title}}</p>
+          </div>
+
+          <div class="product-price mb10">
+            <span class="now-price">特价：<span class="price">￥{{pDetail.price}}</span></span>
+            <span>原价：<span class="old-price"><s>￥{{pDetail.old_price}}</s></span></span>
+          </div>
+        </div>
+
+        <div class="height shadow" *ngIf="!hasAttr"></div>
+
+        <div class="p-attr">
+
+          <div #mySpan class="" *ngIf="!hasAttr" id="mySpan">
+            <div class="color" *ngFor="let item of pDetail.attr">
+              <strong>{{item.cate}}：</strong>
+              <span *ngFor="let detail of item.list;let key=index" [ngClass]="{'active-span': key==0}">{{detail}}</span>
+            </div>
+          </div>
+
+          <div class="number">
+            <strong>数量：</strong>
+            <div class="cart-number">
+              <div class="input-left" (tap)='deleteNum()'>-</div>
+              <div class="input-center">
+                <input type="text" readonly='readonly'  [(ngModel)]="pNum" min="1">
+              </div>
+              <div class="input-right" (tap)='plusNum()'>+</div>
+            </div>
+          </div>
+        </div>
+        <div class="height shadow"></div>
+
+        <div class="fee mb10">
+          <strong>运费：</strong>免运费
+        </div>
+      </div>
+
+      <div class="con-2" *ngSwitchCase="'tab2'" [innerHTML]='pDetail.content'>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-bar">
+
+      <div class="cart-icon" [routerLink]="['/tabs/tab3']" >
+        <ion-icon name="cart" mode='ios'></ion-icon>
+        <p>购物车</p>
+        <ion-badge color="danger" mode='ios'>{{cart_num}}</ion-badge>
+      </div>
+
+      <div class="add-cart" (click)="addCart()">
+        加入购物车
+      </div>
+
+      <div class="buy">
+        立即购买
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

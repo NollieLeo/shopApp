@@ -1,0 +1,104 @@
+<ion-header mode='ios'>
+  <ion-toolbar mode='ios'>
+    <ion-title mode='ios'>个人中心</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- 登陆后 -->
+  <div class="user-info after-login" *ngIf="isLogin">
+    <div class="user-info-content">
+
+      <div class="user-img">
+        <img src="assets/images/user.png" alt="">
+      </div>
+
+      <div class="user-opt">
+
+        <div class="user-opt-main">
+          <div class="user-opt-content">
+            <div class="user-name">
+              <span>用户名: </span>
+              <span>{{username}}</span>
+            </div>
+
+            <div class="user-login">
+              <button>登陆京东账号>></button>
+            </div>
+
+          </div>
+
+          <div class="user-chosen">
+            <button>
+              <ion-icon name="settings" slot="start"></ion-icon>
+              <span [routerLink]="['/user-info']">账号管理</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- 登陆前 -->
+  <div class="user-info before-login" *ngIf="!isLogin">
+    <div class="user-img user-img-before">
+      <img src="assets/images/user.png" alt="">
+    </div>
+
+    <div class="user-chosen-before">
+      <ion-button color="primary" [routerLink]="['/login']">
+        登陆/注册
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="height shadow"></div>
+
+  <ion-list lines='full' class="user-lists" mode='ios'>
+    <ion-item [routerLink]="['/tabs/tab1']" mode='md'>
+      <ion-icon name="paper" slot="start" mode='md'></ion-icon>
+      <ion-label>全部订单</ion-label>
+      <ion-icon name="arrow-forward" slot="end" mode="ios"></ion-icon>
+    </ion-item>
+    <ion-item [routerLink]="['/tabs/tab1']" mode='md'>
+      <ion-icon name="clipboard" slot="start" mode='md'></ion-icon>
+      <ion-label>待付款</ion-label>
+      <ion-icon name="arrow-forward" slot="end" mode="ios"></ion-icon>
+    </ion-item>
+    <ion-item [routerLink]="['/tabs/tab1']" mode='md'>
+      <ion-icon name="time" slot="start" mode='md'></ion-icon>
+      <ion-label>待收货</ion-label>
+      <ion-icon name="arrow-forward" slot="end" mode="ios"></ion-icon>
+    </ion-item>
+    <ion-item [routerLink]="['/tabs/tab1']" mode='md'>
+      <ion-icon name="book" slot="start" mode='md'></ion-icon>
+      <ion-label>售后订单</ion-label>
+      <ion-icon name="arrow-forward" slot="end" mode="ios"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <div class="height shadow"></div>
+
+  <ion-list lines='full' class="user-lists" mode='ios'>
+    <ion-item [routerLink]="['/tabs/tab1']" mode='md'>
+      <ion-icon name="paper" slot="start" mode='md'></ion-icon>
+      <ion-label>全部订单</ion-label>
+      <ion-icon name="arrow-forward" slot="end" mode="ios"></ion-icon>
+    </ion-item>
+    <ion-item [routerLink]="['/tabs/tab1']" mode='md'>
+      <ion-icon name="clipboard" slot="start" mode='md'></ion-icon>
+      <ion-label>待付款</ion-label>
+      <ion-icon name="arrow-forward" slot="end" mode="ios"></ion-icon>
+    </ion-item>
+    <ion-item [routerLink]="['/tabs/tab1']" mode='md'>
+      <ion-icon name="time" slot="start" mode='md'></ion-icon>
+      <ion-label>待收货</ion-label>
+      <ion-icon name="arrow-forward" slot="end" mode="ios"></ion-icon>
+    </ion-item>
+    <ion-item [routerLink]="['/tabs/tab1']" mode='md'>
+      <ion-icon name="book" slot="start" mode='md'></ion-icon>
+      <ion-label>售后订单</ion-label>
+      <ion-icon name="arrow-forward" slot="end" mode="ios"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

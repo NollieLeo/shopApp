@@ -1,0 +1,50 @@
+
+header{
+  background: linear-gradient(to right, #ec3e3d, #ee4d43, #f25a4c, #fa6a52, #fb6e53);
+  height: 3rem;
+  line-height: 3rem;
+}
+.cat-product{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    .cate-left{
+        width: 31%;
+        height: 100%;
+        overflow: auto;
+        
+        ion-label{
+          font-size: 1rem;
+          padding: 0;
+          margin: 0;
+          text-align: center;
+        }
+    }
+    .cate-right{
+          height: 100%;
+          flex: 1;
+          overflow: auto;
+          padding: 0.6rem;
+          background: #eee;
+          /* border-left: .5rem solid #ccc; */
+          ion-col{
+            border: 1px solid #eee
+          }
+          ion-col:nth-child(3n){
+            border-right: none;
+          }
+          .like-product{
+            padding: 0;
+            background: #fff;
+              p{
+                margin: 0;
+                font-size: 0.9rem;
+                text-align: center;
+              }
+          }
+    }
+}
+
+.active_cate{
+  background: #eee;
+}

@@ -1,0 +1,47 @@
+<ion-header mode='ios'>
+  <ion-searchbar placeholder="搜索商品" [routerLink]="['/product-lists']" mode='ios'></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" [options]='slideOpts' #slideBar (ionSlideTouchEnd)='doSlide()' class="my-slide">
+    <ion-slide *ngFor="let item of imgLists">
+      <ion-img [src]="domain + item.pic"></ion-img>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- -------title of producting your favorites--------- -->
+  <div class="height"></div>
+  <div class="title"><span></span>精品推荐</div>
+  <div class="height"></div>
+  <!-- title end -->
+  <!--  精品推荐   -->
+  <div class="slide-product">
+    <ul class="clearfix">
+      <li *ngFor="let item of hotLists" [ngStyle]="{'width': liWidth}" [routerLink]="['/product-detail']" [queryParams]="{'id':item._id}">
+        <img [src]="domain + item.pic" alt="">
+        <p>{{item.title}}</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- -------title of producting your favorites--------- -->
+  <!-- <div class="height"></div> -->
+  <div class="title"><span></span>猜你喜欢</div>
+  <div class="height"></div>
+  <!-- title end -->
+  <!--   猜你喜欢  -->
+  <ion-grid fixed class="like-product">
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of guessLikeLists" [routerLink]="['/product-detail']" [queryParams]="{'id':item._id}">
+        <img [src]="domain + item.s_pic" alt="">
+        <p>{{item.title}}</p>
+        <div class="price">
+          <span>￥{{item.price}}</span>
+          <span><s>￥{{item.old_price}}</s></span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

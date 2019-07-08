@@ -1,0 +1,59 @@
+<ion-header mode='ios'>
+  <ion-toolbar mode='ios'>
+    <ion-title mode='ios'>账户管理</ion-title>
+    <ion-buttons slot="start" mode='ios'>
+      <ion-button (click)="goBack()" mode='ios'>
+        <ion-icon slot="icon-only" slot="start" name="arrow-back" mode='ios'></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="">
+    <ul>
+      <li>
+        <div class="">
+          <span>头像</span>
+          <span>></span>
+          <span>
+            <img src="assets/images/user.png" class="avater">
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="">
+          <span>用户名</span>
+          <span>></span>
+          <span>asasas</span>
+        </div>
+      </li>
+      <li>
+        <div class="">
+          <span>昵称</span>
+          <span>></span>
+          <span>sasas</span>
+        </div>
+
+      </li>
+      <li>
+        <div class="">
+          <span>性别</span>
+          <span>></span>
+          <span>男</span>
+        </div>
+      </li>
+      <li>
+        <div class="">
+          <span>出生日期</span>
+          <span>></span>
+          <span>2017-08-06</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="login-out">
+    <button (click)="loginOut()" class="login-out-btn">退出登录</button>
+  </div>
+</ion-content>

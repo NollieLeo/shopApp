@@ -1,0 +1,103 @@
+ion-list {
+    margin: 0;
+}
+
+ion-content {
+    .order {
+        .address_list {}
+        .product_list {
+            .p_main_lists {
+                ion-item {
+                    display: flex;
+                    padding: 0.3rem 0;
+                    margin: 0;
+                    .p_pic {
+                        width: 5rem;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .p_detail {
+                        flex: 1;
+                        display: flex;
+                        margin-left: 0.7rem;
+                        .p_detail_left {
+                            width: 11rem;
+                            h2 {
+                                font-size: .9rem;
+                                padding: 0;
+                                margin: 0;
+                            }
+                            p {
+                                font-size: .9rem;
+                                background: #8e8e8e0f;
+                                color: #666666ab;
+                                margin: .2rem 0;
+                            }
+                        }
+                        .p_detail_right {
+                            flex: 1;
+                            font-size: 0.8rem;
+                            text-align: end;
+                            p {
+                                .price {
+                                    color: red;
+                                }
+                            }
+                            .count {
+                                color: #666666ab;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-default-address {
+    margin-left: 1.3rem;
+    h2 {
+        font-size: 1.2rem;
+        padding: 0;
+        margin: 0.2rem 0px;
+        span {
+            font-size: 1rem;
+            color: #666;
+        }
+    }
+    p {}
+}
+
+.has-address {
+    ion-item {
+        padding: .5rem;
+    }
+}
+
+ion-footer {
+    ion-toolbar {
+        .order-footer {
+            width: 100%;
+            p {
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 1rem;
+                font-weight: 700;
+                span {
+                    color: red;
+                    font-size: 1.3rem;
+                    font-weight: 400
+                }
+            }
+            .buy-order {
+                background: linear-gradient(to right, #ec3e3d, #ee4d43, #f25a4c, #fa6a52, #fb6e53);
+                width: 5.5rem;
+                height: 2.2rem;
+                color: #fff !important;
+                border-radius: 1rem;
+                float: right;
+            }
+        }
+    }
+}

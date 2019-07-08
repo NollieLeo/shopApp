@@ -1,0 +1,24 @@
+<ion-header mode='ios'>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start" mode="ios" mode='ios'>
+      <ion-button (click)="goBack()" mode='ios'>
+        <ion-icon slot="start" name="arrow-back" mode='ios'></ion-icon>
+        返回
+      </ion-button>
+    </ion-buttons>
+    <ion-title mode='ios'>手机快速注册</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="reg2">
+    <input type="text" placeholder="请输入验证码" [(ngModel)]="myCode">
+
+    <button class="reg2-timer" *ngIf="!isTimeOut">倒计时({{number}})s</button>
+    <button class="reg2-timer2" (click)="reSendCode()" *ngIf="isTimeOut">重新发送</button>
+
+  </div>
+  <ion-button class="reg-btn" expand='block' color="primary" (click)="goPassWord()">
+    下一步
+  </ion-button>
+</ion-content>

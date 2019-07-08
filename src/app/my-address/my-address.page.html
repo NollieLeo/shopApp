@@ -1,0 +1,44 @@
+<ion-header mode='ios'>
+  <ion-toolbar mode='ios'>
+    <ion-buttons slot="start" mode='ios'>
+      <ion-button (click)="goBack()" color="primary">
+        <ion-icon slot="start" name="arrow-back" mode='ios'></ion-icon>
+        返回
+      </ion-button>
+    </ion-buttons>
+    <ion-title mode='ios'>收货地址</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines='full' *ngIf="myAddressLists!=''">
+    <ion-list>
+      <ion-item-sliding *ngFor="let item of myAddressLists;let key = index" #mySlide>
+        <ion-item>
+          <button slot="start" *ngIf="item.default_address">
+            <ion-icon slot="icon-only" name="checkmark" mode='md'></ion-icon>
+          </button>
+          <div class="address-detail" (tap)="changeDefaultAddress(item._id)">
+            <h2>{{item.name}} {{item.phone}}</h2>
+            <p>{{item.address}}</p>
+          </div>
+          <button slot="end" (tap)="goToEdit(item)">
+            <ion-icon name="create" slot="icon-only" mode='md' color="primary"></ion-icon>
+          </button>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="deleteAddress(key,item._id)" color="danger">删除</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-list>
+</ion-content>
+
+<ion-footer mode='ios'>
+  <button [routerLink]="['/add-address']">
+    <span>+</span>
+    新增地址
+  </button>
+</ion-footer>

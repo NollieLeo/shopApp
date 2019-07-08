@@ -1,0 +1,11 @@
+ion-item[lines='none']{
+    font-size: .84rem;
+}
+
+ion-list{
+    ion-item:not([lines='none']){
+        ion-label{
+            width: 5.1rem;
+        }
+    }
+}

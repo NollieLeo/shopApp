@@ -1,0 +1,83 @@
+<ion-header mode='ios'>
+  <ion-buttons slot="start">
+    <ion-button (click)="goBack()" mode='ios'>
+      <ion-icon slot="icon-only" name="arrow-back" mode='ios'></ion-icon>
+    </ion-button>
+    <ion-searchbar animated mode='ios' [(ngModel)]="keywords"></ion-searchbar>
+    <ion-button (click)="searchNow()" mode='ios'>
+      搜索
+    </ion-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <div class="search1" *ngIf="!flag">
+    <div class="search-hot">
+      <div class="search-hot-lists">
+        <h4>热门搜索</h4>
+        <ul>
+          <li>化妆品</li>
+          <li>桃子</li>
+          <li>蜂蜜</li>
+          <li>汉堡</li>
+          <li>男装</li>
+          <li>女装</li>
+          <li>美容</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="height shadow" *ngIf="historyLists.length>0"></div>
+
+    <div class="search-his">
+      <h4 *ngIf="historyLists.length>0">历史搜索</h4>
+
+      <ion-list lines="full">
+
+        <ion-item-sliding *ngFor="let item of historyLists" #mySlidingOtp>
+
+          <ion-item (click)="goSearchHistory(item)">
+            {{item}}
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="deleteItem(item)">删除</ion-item-option>
+          </ion-item-options>
+
+        </ion-item-sliding>
+
+      </ion-list>
+    </div>
+  </div>
+
+  <div class="search2" *ngIf="flag">
+
+    <div class="sort-bar">
+      <ul>
+        <li>综合</li>
+        <li>销量</li>
+        <li>价格</li>
+      </ul>
+    </div>
+
+    <ion-list lines='full' style="padding: 2.5rem 0 0 0!important">
+      <ion-item *ngFor="let item of lists" [routerLink]="['/product-detail']" [queryParams]="{'id':item._id}">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="domain+ item.s_pic"></ion-img>
+        </ion-thumbnail>
+        <p class="p_style">
+          <span>{{item.title}}</span>
+          <span>价格：￥<strong>{{item.price}}</strong></span>
+        </p>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)" *ngIf="hasData">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="加载更多商品...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <div class="no-data" *ngIf="!noData">查询不到商品</div>
+  <h2 *ngIf="!more">没有更多数据....</h2>
+
+</ion-content>

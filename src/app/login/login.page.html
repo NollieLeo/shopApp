@@ -1,0 +1,36 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" color="primary">
+        <ion-icon slot="start" name="arrow-back" mode='ios'></ion-icon>
+        返回
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">请登陆</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines='full' mode='ios'>
+    <ion-item>
+      <ion-label>账户：</ion-label>
+      <ion-input type='text' placeholder="输入账户" mode='ios' [(ngModel)]="telNum"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>密码：</ion-label>
+      <ion-input type='password' placeholder="输入密码" mode='ios' [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <ion-item lines='none' class="item-last">
+      <ion-label slot='start' color="primary" [routerLink]="['/register']">手机快速注册</ion-label>
+      <ion-label slot="end" color="primary">忘记密码</ion-label>
+    </ion-item>
+
+    <ion-button color="primary" expand="block" (click)="doLogin()">登陆</ion-button>
+  </ion-list>
+
+
+
+</ion-content>

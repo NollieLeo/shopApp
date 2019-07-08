@@ -1,0 +1,8 @@
+.item-last{
+    ion-label{
+        font-size: 0.9rem;
+    }
+    ion-label:nth-of-type(2){
+        text-align: right;
+    }
+}
